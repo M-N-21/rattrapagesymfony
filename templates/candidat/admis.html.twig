@@ -12,6 +12,7 @@
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Note</th>
+                <th>Resultat</th>
                 
             </tr>
         </thead>
@@ -21,7 +22,8 @@
                 <td>{{ candidat.id }}</td>
                 <td>{{ candidat.nom }}</td>
                 <td>{{ candidat.prenom }}</td>
-                <td>{{ candidat.note }} / 20</td>
+                <td>{{ candidat.note }} %</td>
+                <td>Admis</td>
             </tr>
         {% else %}
             <tr>

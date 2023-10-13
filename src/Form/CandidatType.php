@@ -19,10 +19,10 @@ class CandidatType extends AbstractType
             ->add('note', NumberType::class, [
                 'constraints' => [
                     new Range([
-                        'min' => 0,
-                        'max' => 20,
-                        'minMessage' => 'La note doit être au moins 0.',
-                        'maxMessage' => 'La note ne peut pas dépasser 20.',
+                        'min' => 1,
+                        'max' => 100,
+                        'minMessage' => 'La note doit être au moins 1%.',
+                        'maxMessage' => 'La note ne peut pas dépasser 100%.',
                     ]),
                 ],
             ])

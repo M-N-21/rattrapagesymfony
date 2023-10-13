@@ -21,7 +21,7 @@
                 <td>{{ candidat.id }}</td>
                 <td>{{ candidat.nom }}</td>
                 <td>{{ candidat.prenom }}</td>
-                <td>{{ candidat.note }} / 20</td>
+                <td>{{ candidat.note }} %</td>
                 <td>
                     <a class="btn btn-primary" href="{{ path('app_candidat_show', {'id': candidat.id}) }}">voir</a>
                     <a class="btn btn-warning" href="{{ path('app_candidat_edit', {'id': candidat.id}) }}">modifier</a>

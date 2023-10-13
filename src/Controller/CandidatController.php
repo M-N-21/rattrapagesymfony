@@ -29,7 +29,7 @@ class CandidatController extends AbstractController
         $candidatadmis = [];
         
         foreach ($candidats as $c) {
-           if ($c->getNote()>=10) {
+           if ($c->getNote()>=70) {
             $candidatadmis[] = $c;
            }
         }
@@ -46,7 +46,7 @@ class CandidatController extends AbstractController
         $candidatadmis = [];
         
         foreach ($candidats as $c) {
-           if ($c->getNote()<10) {
+           if ($c->getNote()<70) {
             $candidatadmis[] = $c;
            }
         }
