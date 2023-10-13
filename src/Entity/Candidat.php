@@ -23,6 +23,12 @@ class Candidat
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '2')]
     private ?string $note = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $resultat = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $npromo = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +66,30 @@ class Candidat
     public function setNote(string $note): static
     {
         $this->note = $note;
+
+        return $this;
+    }
+
+    public function getResultat(): ?int
+    {
+        return $this->resultat;
+    }
+
+    public function setResultat(?int $resultat): static
+    {
+        $this->resultat = $resultat;
+
+        return $this;
+    }
+
+    public function getNpromo(): ?int
+    {
+        return $this->npromo;
+    }
+
+    public function setNpromo(?int $npromo): static
+    {
+        $this->npromo = $npromo;
 
         return $this;
     }

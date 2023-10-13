@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Candidat;
-use App\Form\Candidat1Type;
+use App\Form\CandidatType;
 use App\Repository\CandidatRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,46 +21,14 @@ class CandidatController extends AbstractController
             'candidats' => $candidatRepository->findAll(),
         ]);
     }
-
-    #[Route('/admis', name: 'app_candidatadmis_index', methods: ['GET'])]
-    public function admis(CandidatRepository $candidatRepository): Response
-    {
-        $candidats = $candidatRepository->findAll();
-        $candidatadmis = [];
-        
-        foreach ($candidats as $c) {
-           if ($c->getNote()>=70) {
-            $candidatadmis[] = $c;
-           }
-        }
-        // dd($candidatadmis);
-        return $this->render('candidat/admis.html.twig', [
-            'candidats' => $candidatadmis,
-        ]);
-    }
-
-    #[Route('/admissible', name: 'app_candidatadmissible_index', methods: ['GET'])]
-    public function admissible(CandidatRepository $candidatRepository): Response
-    {
-        $candidats = $candidatRepository->findAll();
-        $candidatadmis = [];
-        
-        foreach ($candidats as $c) {
-           if ($c->getNote()<70) {
-            $candidatadmis[] = $c;
-           }
-        }
-        // dd($candidatadmis);
-        return $this->render('candidat/admissible.html.twig', [
-            'candidats' => $candidatadmis,
-        ]);
-    }
     
+    
+
     #[Route('/new', name: 'app_candidat_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $candidat = new Candidat();
-        $form = $this->createForm(Candidat1Type::class, $candidat);
+        $form = $this->createForm(CandidatType::class, $candidat);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -87,7 +55,7 @@ class CandidatController extends AbstractController
     #[Route('/{id}/edit', name: 'app_candidat_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Candidat $candidat, EntityManagerInterface $entityManager): Response
     {
-        $form = $this->createForm(Candidat1Type::class, $candidat);
+        $form = $this->createForm(CandidatType::class, $candidat);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

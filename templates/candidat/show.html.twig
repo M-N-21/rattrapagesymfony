@@ -21,14 +21,22 @@
             </tr>
             <tr>
                 <th>Note</th>
-                <td>{{ candidat.note }} %</td>
+                <td>{{ candidat.note }}</td>
+            </tr>
+            <tr>
+                <th>Resultat</th>
+                <td>{{ candidat.resultat }}</td>
+            </tr>
+            <tr>
+                <th>Npromo</th>
+                <td>{{ candidat.npromo }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a class="btn btn-primary" href="{{ path('app_candidat_index') }}">retour à la liste</a>
+    <a href="{{ path('app_candidat_index') }}">back to list</a>
 
-    <a class="btn btn-success" href="{{ path('app_candidat_edit', {'id': candidat.id}) }}">modifier</a>
-    <br><br>
+    <a href="{{ path('app_candidat_edit', {'id': candidat.id}) }}">edit</a>
+
     {{ include('candidat/_delete_form.html.twig') }}
 {% endblock %}
